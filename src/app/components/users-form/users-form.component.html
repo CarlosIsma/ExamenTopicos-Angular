@@ -1,0 +1,23 @@
+<div class="card card-body">
+    <form (ngSubmit)="addUser()">
+
+        <div class="form-group">
+            <input type="text" name="name" [(ngModel)]="user.name" class="form-control" placeholder="Nombre">
+        </div>
+
+         
+
+        <div class="form-group">
+            <input type="text" name="email" [(ngModel)]="user.email"class="form-control" placeholder="Correo"> 
+        </div>
+
+       <div class="form-group">
+        <input type="text" name="uid" [(ngModel)]="user.uid"class="form-control" placeholder="Contraseña"> 
+       </div>
+      
+        <button type="submit" class="btn btn-dark btn-block">
+          Guardar
+        </button>
+      </form>
+
+</div>

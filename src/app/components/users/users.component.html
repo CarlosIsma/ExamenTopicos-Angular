@@ -1,0 +1,33 @@
+<div *ngIf="users.length > 0; else nousers">
+    <ul class="list-group" >
+      <li *ngFor="let p of users" class="list-group-item list-group-item-action">
+        <h5>{{ p.name }}</h5>
+        <h3>{{p.email}}</h3>
+        <p>{{p.uid}}</p>
+        <button (click)="deleteUser($event, p)" class="btn btn-danger">
+            
+          Borrar
+        </button>
+  
+        <button (click)="editUser($event, p)" class="btn btn-secondary">
+         Editar 
+        </button>
+        <div *ngIf="editing && editingUser.id == p.id">
+          <form (ngSubmit)="updateUser(user)">
+            <input type="text" name="name" [(ngModel)]="editingUser.name" class="form-control">
+            <input type="text" name="email" [(ngModel)]="editingUser.email" class="form-control">
+            <input type="text" name="uid" [(ngModel)]="editingUser.uid" class="form-control">
+            <button type="submit" class="btn btn-success btn-block">
+              Actualizar
+            </button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #nousers>
+    <p>
+      No hay Usuarios!!
+    </p>
+  </ng-template>
